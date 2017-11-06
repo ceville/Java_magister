@@ -76,7 +76,7 @@ public class Lista1 {
                 }*/
 
                         }
-                        System.out.println("Przechodzę do kolejnej podstrony!!!!!");
+                        System.out.println("!!!!!!!Przechodzę do kolejnej podstrony!!!!!");
                     }
                 }
             }
