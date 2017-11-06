@@ -8,9 +8,11 @@ import java.util.regex.Pattern;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Lista1 {
+
     public static void main(String[] args) throws Exception {
+
+
         String pattern_nazwa = "<h3><a href=\\\"(.*?)\\\">(.*?)<\\/a>";
         Pattern p_nazwa = Pattern.compile(pattern_nazwa);
 
@@ -27,9 +29,9 @@ public class Lista1 {
         Pattern p_strona = Pattern.compile(pattern_strona);
 
         List adresy_stron = new ArrayList();
+
         adresy_stron.add("http://www.info-net.com.pl/katalog/zielona-gora/informatyka-telekomunikacja/informatyka-internet--uslugi");
-        for (int i = 0; i < adresy_stron.size() + 1; i++) {
-            System.out.println("WARTOSC I:::" + i);
+        for (int i = 0; i < 2; i++) {
             URL link = new URL(adresy_stron.get(i).toString());
 
             BufferedReader zawartosc = new BufferedReader(
@@ -46,41 +48,38 @@ public class Lista1 {
 
 
                 if (m_nazwa.find()) {
-                    System.out.println("Nazwa Firmy: " + m_nazwa.group(2));
+                    System.out.println("\nNazwa Firmy: " + m_nazwa.group(2));
+
                 }
+
                 if (m_adres.find()) {
                     System.out.println("Adres Firmy: " + m_adres.group(1) + " | " + m_adres.group(2) + " | " + m_adres.group(3));
                 }
+
                 if (m_mail.find()) {
                     System.out.println("Mail do Firmy: " + m_mail.group(1));
                 }
+
                 if (m_telefon.find()) {
-                    System.out.println("Telefon do Firmy: " + m_telefon.group(2));
+                    System.out.println("Telefon do Firmy: " + m_telefon.group(2) + "\n");
                 }
 
-                int powtorka = 0;
+
                 for (int j = 0; j < adresy_stron.size(); j++) {
                     if (m_strona.find()) {
-                        System.out.println("Adres strony: " + adresy_stron.get(i));
-                        System.out.println("Pozyskana czesc adresu: " + m_strona.group(2));
-                        String tymczasowy_adres_strony = ("http://www.info-net.com.pl/katalog/zielona-gora/informatyka-telekomunikacja/informatyka-internet--uslugi" + m_strona.group(2).toString());
-                        if (tymczasowy_adres_strony != adresy_stron.get(j)) {
-                            adresy_stron.add("http://www.info-net.com.pl/katalog/zielona-gora/informatyka-telekomunikacja/informatyka-internet--uslugi" + m_strona.group(2).toString());
-
-                           /* powtorka++;
-                        }
-                    }
-                }
-                if (powtorka<1){
-                    adresy_stron.add("http://www.info-net.com.pl/katalog/zielona-gora/informatyka-telekomunikacja/informatyka-internet--uslugi" + m_strona.group(2).toString());
-                }*/
-
-                        }
-                        System.out.println("???????Przechodzę do kolejnej podstrony......");
+                        adresy_stron.add("http://www.info-net.com.pl/katalog/zielona-gora/informatyka-telekomunikacja/informatyka-internet--uslugi" + m_strona.group(2).toString());
                     }
                 }
             }
+            System.out.println("Adres obecnej strony: " + adresy_stron.get(i));
+            System.out.println("-------------------------");
+            System.out.println("Przechodzę do kolejnej podstrony");
+            System.out.println("-------------------------");
+
         }
+
+
     }
 }
+
 
