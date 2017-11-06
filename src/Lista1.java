@@ -76,8 +76,7 @@ public class Lista1 {
                 }*/
 
                         }
-                        System.out.println("!!!!Przechodzę do kolejnej podstrony!!!!!");
-                        System.out.println("WARTOSC I:::" + i);
+                        System.out.println("Przechodzę do kolejnej podstrony!!!!!");
                     }
                 }
             }
